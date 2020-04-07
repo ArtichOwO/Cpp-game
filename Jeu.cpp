@@ -103,7 +103,7 @@ int main() {
                 std::cout << "----------------------------------------------------\n";
                 std::cout << "-----Shoot game text line for win32 x86 and x64-----\n";
                 std::cout << "----------------------------------------------------\n";
-                std::cout << "made by Louis Cornu--Richard @win9x in 2020         \n";
+                std::cout << "made by Julie Cornu--Richard @win9x in 2020         \n";
                 std::cout << "I love making game on C++\n";
                 std::cout << "made on Visual Studio Community 2019 with C++\n";
                 system("pause");
