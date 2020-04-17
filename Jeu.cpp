@@ -8,17 +8,27 @@ int ammo;
 int enco;
 int live;
 int weap; //weapon 1:gun_classic 2:sword 3:minigun 4:sniper 5:cleaver
+int dmg; //this is the coefficient for damage, this change with the weapon
+int speed;
 int reco = 0;
 std::string rep;
 std::string tywe;
 int main() {
-    std::cout << "Welcome to this game\n";
+    std::cout << "starting engine of randomizer";
+    int mene = 0;
+    int ouch = 0;
+    srand(time(NULL)); // initialisation de random
+    std::cout << "randomize engine started";
+    std::cout << "Welcome to this game v1.2\n";
+    std::cout << "\nCheck my stuff at https://github.com/windows9x95/ \n";
+    std::cout << "\n";
     std::cout << "Type the difficulty 1/2/3 : ";
     std::cin >> difficulty;
+    std::cout << "choose a weapon 1:classic gun 2:basic sword (more weapon will be added later :) ) : ";
+    std::cin >> tywe;
     std::cout << " \nyou are gonna to play on the " << difficulty << " difficulty level \n";
-    std::cout << "So now please wait we're verifiying your game installation folder...\n";
-    std::cout << "Press any key to skip this verification (we're verifiying only this file x)\n";
-    system("timeout 10");
+
+    std::cout << "\n";
     if (difficulty == 1) {
         live = 5;
         enco = 200;
@@ -40,28 +50,46 @@ int main() {
         life = 100;
         weap = 1;
     }
+    if (difficulty == 666) {
+        live = 1;
+        enco = 666;
+        ammo = 150;
+        life = 75;
+        weap = 2;
+    }
     if (weap == 1) {
         tywe = "Classic gun";
+        dmg = 1000;
+        speed = 2;
     }
     if (weap == 2) {
         tywe = "Sword";
+        dmg = 1000;
+        speed = 2;
     }
     if (weap == 3) {
         tywe = "MiniGun";
+        dmg = 100;
+        speed = 123;
     }
     if (weap == 4) {
         tywe = "Sniper";
+        dmg = 10;
+        speed = 1;
     }
     if (weap == 5) {
         tywe = "Cleaver";
+        dmg = 750;
+        speed = 0;
+    }
+    if (weap == 6) {
+        tywe = "Unicorn";
+        dmg = 5;
+        speed = 0;
     }
     std::cout << "You have " << life << " % of HP, " << ammo << " of ammo, " << tywe << " is your weapon and \n" << enco << " ennemies left\n";
     system("pause");
-    std::cout << "starting engine of randomizer";
-    system("timeout 3");
-    int mene = 0;
-    int ouch = 0;
-    srand(time(NULL)); // initialisation de random
+
     mene = rand();
     while (life > 0) {
         while (enco > 0) {
@@ -71,11 +99,11 @@ int main() {
             std::cout << "\n";
             if (rep == "attak") {
                 mene = rand();
-                mene = mene / 1000;
+                mene = mene / dmg;
                 enco = enco - mene;
                 ouch = rand();
                 ouch = ouch / 7500;
-                ammo = ammo - 1;
+                ammo = ammo - speed;
                 reco = rand();
                 reco = reco / 8000;
                 life = life - ouch;
@@ -97,15 +125,22 @@ int main() {
                 std::cout << "ok you are gonna to exit this app, see you later (ps : you loose because you quit)\n";
                 system("pause");
                 std::terminate();
+                return 0;
             }
-            if (rep == "idkbro") {
-                std::cout << "gg bro you find this secret easter egg\n";
+            if (rep == "idk") {
+                std::cout << "gg  you find this secret easter egg\n";
                 std::cout << "----------------------------------------------------\n";
                 std::cout << "-----Shoot game text line for win32 x86 and x64-----\n";
                 std::cout << "----------------------------------------------------\n";
-                std::cout << "made by Julie Cornu--Richard @win9x in 2020         \n";
+                std::cout << "made by Julie Cornu--Richard @windows9x95 in 2020   \n";
+                std::cout << "check my cool github project at                     \n";
+                std::cout << "https://github.com/windows9x95/                     \n";
                 std::cout << "I love making game on C++\n";
-                std::cout << "made on Visual Studio Community 2019 with C++\n";
+                std::cout << "made with the Visual Studio IDE with C++\n";
+                system("pause");
+            }
+            else {
+                std::cout << "I dont understand what you typed, try again \n";
                 system("pause");
             }
         }
